@@ -3,34 +3,51 @@ package modell;
 public class Akita extends Kutya{
     private double engedelmessegbolTeljesitett;
 
-    public Akita(String tulNeve) {
+    private OrzoVedo orzoVedoFeladat;
+
+    public Akita(String tulNeve, OrzoVedo orzoVedo) {
         super(tulNeve);
         this.engedelmessegbolTeljesitett = 0;
+        this.orzoVedoFeladat = orzoVedo;
     }
 
-    public double getEngedelmessegbolTeljesitett() {
-        return engedelmessegbolTeljesitett;
-    }
+    public Akita(String tulNeve) {this(tulNeve, OrzoVedo.NINCS);}
 
+    public void orzoVedo() {
+        int currentOrdinal = orzoVedoFeladat.ordinal();
+        int nextOrdinal = (currentOrdinal + 1) % OrzoVedo.values().length;
+        if (nextOrdinal == 0) {
+            orzoVedoFeladat = OrzoVedo.values()[1];
+        } else {
+            orzoVedoFeladat = OrzoVedo.values()[currentOrdinal + 1];
+        }
+    }
     public void setEngedelmessegbolTeljesitett() {
         this.engedelmessegbolTeljesitett += 2.5;
         if (this.engedelmessegbolTeljesitett > 100)
             this.engedelmessegbolTeljesitett = 100;
     }
 
+    @Override
     public void fut(Foglalkozas foglalkozas){
-        this.setFaradt(true);
-        switch (foglalkozas){
-            case ENGEDELMESSEG -> {
-                setEngedelmessegbolTeljesitett();
-                break;
-            }
-        }
+            super.fut(foglalkozas);
+            switch (foglalkozas){
+                case ENGEDELMESSEG -> {
+                    setEngedelmessegbolTeljesitett();
+                    break;
+                }case ORZOVEDO -> {
+                    orzoVedo();
+                }
+            }this.setFaradt(true);
     }
 
     @Override
     public String toString() {
-        return "Akita kutya: " + "tulajdonos neve= " + getTulNeve() + ", engedelmességből teljesített= " + engedelmessegbolTeljesitett + "," + (isFaradt() ? " elfáradt": " még nem fáradt el")  ;
+        return "Akita kutya: " + "tulajdonos neve= " + getTulNeve() +
+                ", engedelmességből teljesített= " + engedelmessegbolTeljesitett +
+                " Utoljára végzett foglalkozás: " + getUtolsoFoglalkozas() + "," +
+                " Utoljára tanult feladat: "+ orzoVedoFeladat + ", "+
+                (isFaradt() ? " elfáradt": " még nem fáradt el")  ;
 
 
     }

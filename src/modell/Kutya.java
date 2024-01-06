@@ -3,10 +3,12 @@ package modell;
 public abstract class Kutya {
     private String tulNeve;
     private boolean faradt;
+    private Foglalkozas foglalkozas;
 
     public Kutya(String tulNeve) {
         this.tulNeve = tulNeve;
         faradt = false;
+        foglalkozas = Foglalkozas.ENGEDELMESSEG;
     }
 
     public String getTulNeve() {
@@ -25,8 +27,13 @@ public abstract class Kutya {
         this.faradt = faradt;
     }
 
-     abstract void fut(Foglalkozas foglalkozas);
+     void fut(Foglalkozas foglalkozas) {
+        this.foglalkozas = foglalkozas;
+     }
 
+     Foglalkozas getUtolsoFoglalkozas() {
+        return this.foglalkozas;
+     }
     @Override
     public String toString() {
         return "Kutya{" + "tulNeve=" + tulNeve + ", fáradt?=" + faradt + '}';

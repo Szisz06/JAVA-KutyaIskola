@@ -3,7 +3,7 @@ package main;
 import modell.*;
 
 public class KutyaIskolaProgram {
-    private KutyaIskola iskola;
+    private  KutyaIskola iskola;
 
 
 
@@ -25,11 +25,53 @@ public class KutyaIskolaProgram {
         iskola.futtat(Foglalkozas.ENGEDELMESSEG);
         kutyakatKiir();
 
-        System.out.println("--- Dóri kivette a kutyáját");
+        System.out.println("--- Dóri, Sziszi és Alexa kivette a kutyáját");
         iskola.kiad("Dóri");
+        iskola.kiad("Sziszi");
+        iskola.kiad("Alexa");
         System.out.println("--- A bentmaradt kutyák:");
         kutyakatKiir();
 
+        System.out.println("--- Eszter beviszi a kutyáját agility képzésre");
+        iskola.bevesz(new BorderCollie("Eszter"));
+        System.out.println("--- Agility képzés UTÁN:");
+        iskola.futtat(Foglalkozas.AGILITY);
+        kutyakatKiir();
+
+        System.out.println("--- Eszter és Péter kivette a kutyáját");
+        iskola.kiad("Eszter");
+        iskola.kiad("Péter");
+        System.out.println("--- A bentmaradt kutyák:");
+        kutyakatKiir();
+
+        System.out.println("--- Anna beviszi a kutyáját örző-védő képzésre");
+        iskola.bevesz(new Akita("Anna"));
+        System.out.println("--- Örző-védő képzés UTÁN:");
+        iskola.futtat(Foglalkozas.ORZOVEDO);
+        kutyakatKiir();
+
+        System.out.println("--- Anna kivette a kutyáját");
+        iskola.kiad("Anna");
+        System.out.println("--- A bentmaradt kutyák:");
+        kutyakatKiir();
+
+        System.out.println("--- Sanyi beviszi a kutyáját örző-védő képzésre");
+        iskola.bevesz(new NemetJuhasz("Sanyi"));
+        kutyakatKiir();
+
+        System.out.println("--- Örző-védő képzés UTÁN:");
+        iskola.futtat(Foglalkozas.ORZOVEDO);
+        kutyakatKiir();
+
+        System.out.println("--- 4 Örző-védő képzés:");
+        for (int i = 0; i < 4; i++) {
+            iskola.futtat(Foglalkozas.ORZOVEDO);
+            kutyakatKiir();
+        }
+        iskola.kiad("Sanyi");
+        kutyakatKiir();
+
+        /*
         for (int i = 0; i < 15; i++) {
             iskola.futtat(Foglalkozas.ENGEDELMESSEG);
         }
@@ -37,7 +79,7 @@ public class KutyaIskolaProgram {
         iskola.futtat(Foglalkozas.ENGEDELMESSEG);
         kutyakatKiir();
 
-        System.out.println("--- A kutyaiskola természeti katasztrófát szenvedett!");
+       System.out.println("--- A kutyaiskola természeti katasztrófát szenvedett!");
         iskola.termeszetiKatasztrofa();
         kutyakatKiir();
 
@@ -45,6 +87,7 @@ public class KutyaIskolaProgram {
         iskola.bevesz(new BorderCollie("Viola"));
         iskola.futtat(Foglalkozas.ENGEDELMESSEG);
         iskola.kiad("Sziszi");
+        */
 
     }
 
