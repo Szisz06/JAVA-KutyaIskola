@@ -28,6 +28,6 @@ public class NemetJuhasz extends Kutya{
     }
     @Override
     public String toString() {
-        return "Német Juhász kutya " + "tulajdonos neve = " + getTulNeve()+  ", " + (isFaradt() ? "elfáradt": "még nem fáradt el")  + ", engedelmességből teljesített = " + engedelmessegbolTeljesitett;
+        return "Német Juhász kutya: " + "tulajdonos neve= " + getTulNeve() + ", engedelmességből teljesített= " + engedelmessegbolTeljesitett + "," + (isFaradt() ? " elfáradt": " még nem fáradt el")  ;
     }
 }

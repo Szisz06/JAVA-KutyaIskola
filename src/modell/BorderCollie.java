@@ -13,7 +13,7 @@ public class BorderCollie extends Kutya{
     }
 
     public void setEngedelmessegbolTeljesitett() {
-        this.engedelmessegbolTeljesitett = 7.5;
+        this.engedelmessegbolTeljesitett += 7.5;
         if (this.engedelmessegbolTeljesitett > 100)
             this.engedelmessegbolTeljesitett = 100;
     }
@@ -28,7 +28,7 @@ public class BorderCollie extends Kutya{
     }
     @Override
     public String toString() {
-        return "Border Collie kutya " + "tulajdonos neve = " + getTulNeve()+  ", " + (isFaradt() ? "elfáradt": "még nem fáradt el")  + ", engedelmességből teljesített = " + engedelmessegbolTeljesitett;
+        return "Border Collie kutya: " + "tulajdonos neve= " + getTulNeve() + ", engedelmességből teljesített= " + engedelmessegbolTeljesitett + "," + (isFaradt() ? " elfáradt": " még nem fáradt el")  ;
 
     }
 }

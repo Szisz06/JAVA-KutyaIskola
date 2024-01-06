@@ -30,7 +30,8 @@ public class Akita extends Kutya{
 
     @Override
     public String toString() {
-        return "Akita kutya " + "tulajdonos neve = " + getTulNeve()+  ", " + (isFaradt() ? "elfáradt": "még nem fáradt el")  + ", engedelmességből teljesített = " + engedelmessegbolTeljesitett;
+        return "Akita kutya: " + "tulajdonos neve= " + getTulNeve() + ", engedelmességből teljesített= " + engedelmessegbolTeljesitett + "," + (isFaradt() ? " elfáradt": " még nem fáradt el")  ;
+
 
     }
 }
