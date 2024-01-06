@@ -18,10 +18,10 @@ public class KutyaIskola {
             System.out.println("Az futtató megtelt!");
         }
     }
-    public void fut(){
+    public void futtat(Foglalkozas foglalkozas){
         for (Kutya kutya : kutyak) {
             if(kutya != null){
-                kutya.setFaradt(true);
+                kutya.fut(foglalkozas);
             }
         }
     }
@@ -42,8 +42,7 @@ public class KutyaIskola {
         for (int i = 0; i < kutyaDb; i++) {
             Kutya r = this.kutyak[i];
             if(r != null){
-                kutyak[i] = r.getTulNeve() + " kutyája ";
-                kutyak[i] += r.isFaradt() ? "elfáradt." : "még nem fáradt el.";
+                kutyak[i] = r.toString();
             }
         }
         return kutyak;

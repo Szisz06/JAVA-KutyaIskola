@@ -1,6 +1,6 @@
 package modell;
 
-public class Kutya {
+public abstract class Kutya {
     private String tulNeve;
     private boolean faradt;
 
@@ -24,6 +24,9 @@ public class Kutya {
     public void setFaradt(boolean faradt) {
         this.faradt = faradt;
     }
+
+     abstract void fut(Foglalkozas foglalkozas);
+
     @Override
     public String toString() {
         return "Kutya{" + "tulNeve=" + tulNeve + ", fáradt?=" + faradt + '}';

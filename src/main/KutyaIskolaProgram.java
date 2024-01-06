@@ -1,7 +1,6 @@
 package main;
 
-import modell.KutyaIskola;
-import modell.Kutya;
+import modell.*;
 
 public class KutyaIskolaProgram {
     private KutyaIskola iskola;
@@ -12,16 +11,16 @@ public class KutyaIskolaProgram {
 
     public KutyaIskolaProgram() {
         iskola = new KutyaIskola(9);
-        iskola.bevesz(new Kutya("Péter"));
-        iskola.bevesz(new Kutya("Sziszi"));
-        iskola.bevesz(new Kutya("Alexa"));
-        iskola.bevesz(new Kutya("Dóri"));
+        iskola.bevesz(new Akita("Péter"));
+        iskola.bevesz(new BorderCollie("Sziszi"));
+        iskola.bevesz(new NemetJuhasz("Alexa"));
+        iskola.bevesz(new Akita("Dóri"));
 
         System.out.println("--- futtatás ELŐTT:");
         kutyakatKiir();
 
         System.out.println("--- futtatás UTÁN:");
-        iskola.fut();
+        iskola.futtat(Foglalkozas.ENGEDELMESSEG);
         kutyakatKiir();
 
         System.out.println("--- Sziszi és Alexa kivette a kutyáját");
